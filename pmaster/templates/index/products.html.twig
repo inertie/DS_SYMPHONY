@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{% endblock %}
+
+{% block title %} 
+    {{ parent() }} - Products
+{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1> All our products </h1>
+        <div class="container">
+            {% for produit in produits %}
+                <div class="card mb-3" >
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ produit.image }}" class="card-img" alt="...">
+                         </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text"> {{ produit.promo }}
+                                <h5 class="card-title">{{ produit.name }}</h5>
+                                <p class="card-text"><small class="text-muted">Created on {{ produit.created |date("d/m/Y") }}</small></p>
+                                <a href="/product/{{ produit.id }}" class="btn btn-primaty"> More about it </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

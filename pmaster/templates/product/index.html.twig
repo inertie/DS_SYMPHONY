@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{% endblock %}
+
+{% block title %} 
+    {{ parent() }} - Product
+{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1> Product n° {{produit.id}}</h1>
+        <div class="container">
+            <ul class="d-flex flex-wrap">
+                <div class="card" style="width:300rem;">
+                <img src="{{ produit.image }}" alt="" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ produit.name }}</h5>
+                    <p class="card-text">{{ produit.promo }}</p>
+                    <p class="card-text"> {{ produit.priceht}} €</p>
+                    <p class="card-text"> {{ produit.description}} </p>
+                </div>
+                </div>     
+            </ul>
+        </div>
+    </div>
+{% endblock %}
